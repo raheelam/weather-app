@@ -1,0 +1,18 @@
+div .weatherData{
+    border:3px solid black;
+    border-radius: 5px;
+    padding: 3px 10px 3px 10px;
+    font: helvetica;
+    font-size: 16px;
+    font-weight: bolder;
+  
+
+
+}
+div.weatherData:hover{
+    border-left: 5px solid black;
+    border-right: 5px solid black;
+    padding: 3px 20px;
+    font-size: 18px;
+    font-weight: bolder;
+}

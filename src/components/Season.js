@@ -1,6 +1,7 @@
 import React from 'react';
 import './Season.css';
 import Spinner from './Spinner';
+import WeatherData from './WeatherData';
 
 let month = (new Date()).getMonth();
 let monthString = (new Date()).toLocaleString('default',{month: 'long'});
@@ -20,7 +21,7 @@ const displaySeason = (lat) =>{
     return ((month>4) && (month<9))? winter: summer;
  }
 
- const displayPage = (lat, error) =>{
+ const displayPage = (lat, error, wData) =>{
    
     if(lat === null && error === ''){
         return (<Spinner message="Please enable your location..." />);
@@ -29,9 +30,10 @@ const displaySeason = (lat) =>{
      let season = displaySeason(lat);
      return (
        <div className={`${season.name} main` }>
-         <i className={`${season.icon} icon massive left-icon`}></i>
+         <i className={`${season.icon}  icon massive left-icon`}></i>
+         <WeatherData weatherData = {wData}  />
          <h1>{season.message}</h1>
-         <i className={`${season.icon} icon massive right-icon`}></i>
+         <i className={`${season.icon}  icon big right-icon`}></i>
        </div>
      );
     }
@@ -45,9 +47,9 @@ const displaySeason = (lat) =>{
           
  }
 
-const Season = ({lat, error})=>{
+const Season = ({lat, error, wData})=>{
     
-        return (<div>{displayPage(lat, error)}</div>);
+        return (<div>{displayPage(lat, error, wData)}</div>);
 
 }
 export default Season;
