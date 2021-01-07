@@ -10,7 +10,7 @@ class App extends React.Component{
         getWeatherData = (lat, long) =>{
         let req = new XMLHttpRequest();
         let weather = {};
-        req.open("GET", `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=metric&appid=8c4806247c5bcad8af0bffbc4888e50b`);
+        req.open("GET", `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=metric&appid=${process.env.REACT_APP_WEATHER_API_KEY}`);
          req.send();
          req.onload = () => {
               const data =  JSON.parse(req.responseText);
