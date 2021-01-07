@@ -11,7 +11,7 @@ class App extends React.Component{
         let req = new XMLHttpRequest();
         let weather = {};
             const newLocal = process.env.REACT_APP_WEATHER_API_KEY;
-        req.open("GET", `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=metric&appid=${newLocal}`);
+        req.open("GET", `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=metric&appid=${newLocal}`);
          req.send();
          req.onload = () => {
               const data =  JSON.parse(req.responseText);
@@ -20,7 +20,7 @@ class App extends React.Component{
 
              console.log(`${data.clouds.all} ${data.weather[0].icon} ${data.weather[0].description} ${data.sys.country} ${data.name} feela like: ${data.main.feels_like} ${data.main.temp}degrees ${data.main.humidity} ${data.main.temp_min} ${data.main.temp_max}`);
              weather = {
-                 icon: `http://openweathermap.org/img/w/${data.weather[0].icon}.png`,
+                 icon: `https://openweathermap.org/img/w/${data.weather[0].icon}.png`,
                  country: data.sys.country,
                  city: data.name,
                  clouds: data.clouds.all,
