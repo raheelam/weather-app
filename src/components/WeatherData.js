@@ -13,7 +13,8 @@ const WeatherData = (props) => {
        
     }
     if(data.length == 0){
-        data.push(<Spinner message="Loading data..."/>);
+        data.push(<h1>Loading data...</h1>);
+        data.push(<i className="spinner loading massive icon"></i>);
     }
 
     console.log(props.weatherData);
