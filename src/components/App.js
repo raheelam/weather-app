@@ -8,7 +8,7 @@ class App extends React.Component{
     }
 
         getWeatherData = (lat, long) =>{
-        let req = new XMLHttpsRequest();
+        let req = new XMLHttpRequest();
         let weather = {};
             const newLocal = process.env.REACT_APP_WEATHER_API_KEY;
         req.open("GET", `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=metric&appid=${newLocal}`);
