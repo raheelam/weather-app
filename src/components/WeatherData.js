@@ -1,4 +1,5 @@
 import React from 'react';
+import Spinner from './Spinner';
 import './WeatherData.css'
 
 const WeatherData = (props) => {
@@ -10,7 +11,11 @@ const WeatherData = (props) => {
          data.push(<p>{key}: {props.weatherData[key]}</p>);
         }
        
-    } 
+    }
+    if(data.length == 0){
+        data.push(<Spinner message="Loading data..."/>);
+    }
+
     console.log(props.weatherData);
     return(
         <div class="weatherData">
